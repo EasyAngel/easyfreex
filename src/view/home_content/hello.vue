@@ -27,17 +27,12 @@
 	        transition="fadein">
 	        <ul class="menus clearfix">
 	          	<li class="product" v-for="item in currentcontent" >
-		            <!-- <router-link > -->
+		            <router-link to="/home/description">
 		              
                    <div class="product-name">
-
                        {{item.name}}
                    </div>
-		            <!-- </router-link> -->
-		            <div class="product-name">
-
-                 {{item.name}}
-                </div>
+		            </router-link>
 		            
 	          	</li>
 	        </ul>
@@ -102,9 +97,7 @@ export default{
         {name: '橄榄美品'},
         {name: '火山岩泥'},
         {name: '生机展颜'},
-        {name: '济州石榴'},
-        {name: '寒兰'},
-        // {name: '小米笔记本Air 13.3', imgUrl: 'http://c1.mifile.cn/f/i/g/2015/cn-index/bijiben320!160x110.jpg', sourcePath: 'http://www.mi.com/mimax/', price: '4999元'}
+        
       ],
       // 绿茶系列子目录
       tv: [
@@ -112,9 +105,7 @@ export default{
         {name: '雪耳'},
         {name: '温泉水' },
         {name: '九重镇纸' },
-        {name: '熔岩海水'},
-        {name: '翔飞'},
-        // {name: '小米电视3 70英寸', imgUrl: 'http://c1.mifile.cn/f/i/15/goods/nav/mitv70!160x110.jpg', sourcePath: 'GoodsDetail', price: '8999元'}
+        
       ],
       // 裸妆系列子目录
       box: [
@@ -122,10 +113,7 @@ export default{
         {name: '眉笔'},
         {name: '眼线笔'},
         {name: '眼影'},
-        {name: '睫毛夹'},
-        {name: '腮红'},
-        {name: '唇彩'},
-        // {name: '小米家庭音响 标准版', imgUrl: 'http://c1.mifile.cn/f/i/g/2015/cn-index/putonban!160x110.jpg', sourcePath: 'http://item.mi.com/1160800074.html', price: '699元'}
+        
       ],
       // 底妆系列子目录
       router: [
@@ -134,9 +122,7 @@ export default{
         {name: '粉底'},
         {name: '遮瑕产品'},
         {name: '双用粉饼'},
-        {name: '液体粉底'},
-        {name: '霜状粉底'},
-        // {name: '小米WiFi放大器', imgUrl: 'http://c1.mifile.cn/f/i/15/goods/nav/wifiExtension!160x110.jpg', sourcePath: 'http://item.mi.com/1153200003.html', price: '35元'}
+        
       ],
       // 素颜系列
       hardware: [
@@ -145,46 +131,15 @@ export default{
         {name: 'dd霜'},
         {name: 'ee霜'},
         {name: 'ff霜'},
-        // {name: '智能摄像机', imgUrl: 'http://c1.mifile.cn/f/i/g/doodle/zhinengyingjian!160x110.jpg', sourcePath: 'http://list.mi.com/accessories/tag?id=shexiangji', price: '149元起'}
+        
       ],
-      // results: [
-      //   {name: '小米手机5', number: '11'},
-      //   {name: '空气净化器2', number: '1'},
-      //   {name: '活塞耳机', number: '4'},
-      //   {name: '小米路由器', number: '8'},
-      //   {name: '移动电源', number: '21'},
-      //   {name: '运动相机', number: '3'},
-      //   {name: '小米摄像机', number: '2'},
-      //   {name: '小米体重秤', number: '1'},
-      //   {name: '小米插线板', number: '13'},
-      //   {name: '配件优惠套装', number: '32'}
-      // ]      
+      
       }
    },
 
-    // 滚动监听
-//     mounted () {
-//   window.addEventListener('scroll', this.handleScroll)
-// },
+    
    methods:{
-   	// 滚动监听方法
-   	 // 滚动监听
-//     mounted () {
-//   window.addEventListener('scroll', this.handleScroll)
-// },
-    // evtIptFocus () {
-      // $('.search-btn').addClass('search-btn-active')
-      // $('.header-search').addClass('search-active')
-      // $('.search-result').show();
-      // this.hotStatus = false
-    // },
-
-    // evtIptBlur () {
-      // $('.header-search').removeClass('search-active')
-      // $('.search-btn').removeClass('search-btn-active')
-      // $('.search-result').hide()
-      // this.hotStatus = true
-    // },
+   	
     evtHeaderEnter (menuType) {
       if (menuType) {
          this.currentcontent = this[menuType]
@@ -293,14 +248,7 @@ body{
 	border-radius: 5%;
 	height: 30px;
 }
-/*.hello .hidden-menu .product-price {
-	width: 100%;
-	height: 14px;
-	margin-top: 10px;
-	font-size: 10px;
-	text-align: center;
-	color: #ff6700;
-}*/
+
 
 .hello .hidden-menu .hot-word {
 	position: absolute;
@@ -323,47 +271,10 @@ body{
 	border: 0;
 	outline: none;
 }
-/*.hello .hidden-menu .search-btn {
-	display: block;
-	float: right;
-	width: 50px;
-	height: 100%;
-	border-left: 1px solid #e0e0e0;
-	cursor: pointer;
+/*.hello .product-name{
+  text-decoration: none;
 }*/
-
-/*.hello .hidden-menu .search-btn:hover{
-	background: #ff6700;
-}*/
-/*.hello .hidden-menu .search-active {
-	border: 1px solid #ff6700;
-}*/
-/*.hello .hidden-menu .search-btn-active {
-	border-left: 1px solid #ff6700;
-}*/
-
-/*.hello .hidden-menu .search-result {
-	display: none;
-	position: absolute;
-	left: -1px;
-	top: 48px;
-	width: 245px;
-	height: auto;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	border: 1px solid #ff6700;
-	z-index: 11;
-	background: #fff;
-}*/
-/*.hello .search-result li {
-	padding: 7px 13px;
-	width: 100%;
-	height: 30px;
-	box-sizing: border-box;
-	cursor: pointer;
-}*/
-.hello .item-name {
+/*.*//*hello .item-name {
 	float: left;
 	font-size: 12px;
 }
@@ -371,5 +282,5 @@ body{
 	float: right;
 	font-size: 10px;
 	color: #b0b0b0;
-}
+}*/
 </style>

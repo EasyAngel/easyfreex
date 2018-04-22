@@ -38,9 +38,9 @@
 			</el-menu-item>
 
 			<el-menu-item index="6" class="menu_item">
-				<!-- <router-link to="/home/project"> -->
+				<router-link to="/home/community">
 			    	<i class="fa fa-folder-open-o icon" aria-hidden="true"></i>社区
-			    <!-- </router-link> -->
+			    </router-link>
 			</el-menu-item>
 
 			<el-menu-item index="7" class="menu_item">

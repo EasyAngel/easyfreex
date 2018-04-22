@@ -30,6 +30,9 @@ import Introduce from '@/view/introduce/introduce'
 // 活动
 import Activity from '@/view/activity/activity'
 
+// 社区
+import Community from '@/view/community/community'
+
 // 详细页模块
 import Description from '@/view/desciption/description'
 
@@ -62,7 +65,8 @@ export default new Router({
             },
             {path: 'introduce',component: Introduce},
             // {path: 'buying',component: Buying},
-            {path: 'activity',component: Activity}
+            {path: 'activity',component: Activity},
+            {path: 'community',component: Community}
            
         ]
 }     

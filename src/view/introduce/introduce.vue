@@ -45,7 +45,13 @@
 		 	</div>
 		 	
 		 </div>
-		
+
+		 <!-- 品牌事件记忆 -->
+		 <!-- <div class="memory">
+		 	<h4>EasyFreex品牌大事记</h4>
+			<img v-lazy="item.imgUrl" v-for="item in memoryimg" alt=""> 
+		 </div> -->
+		<homeContentLastFoot class="homeContentLastFoot"></homeContentLastFoot> 
 
 	</div>
 </template>
@@ -142,19 +148,42 @@
     .introduce .intro_cont .intro_content .littleIntro{
     	padding: 50px;
     }
+    .introduce .memory{
+    	width: 600px;
+    	background-color: red;
+    }
+    .introduce .memory img{
+    	/*width: 100%;*/
+    	/*height: 100px;*/
+    }
+    .introduce .homeContentLastFoot{
+    	margin-top: -200px;
+    	margin-left: -100px;
+    	/*width: 80%;*/
+    }
 </style>
 <script>
+	import HomeContentLastFoot from '@/view/home_content/home_contentLastfoot';
 	import VueLazyload from 'vue-lazyload'
-	export default{		
+	export default{	
+	components:{
+  			homeContentLastFoot:HomeContentLastFoot
+  		},	
 		data(){
 			
 			return{
 				
     	imglist: [
 	        {imgUrl: '../../../static/img/intro1.jpg'},
-	        {imgUrl: '../../../static/img/intro2.jpg'}
-	   
-      ]
+	        {imgUrl: '../../../static/img/intro2.jpg'}]
+	    // memoryimg: [
+	    //     {imgUrl: '../../../static/img/memory1.png'},
+	    //     {imgUrl: '../../../static/img/memory2.png'},
+	    //     {imgUrl: '../../../static/img/memory3.png'},
+	    //     {imgUrl: '../../../static/img/memory4.png'},
+	    //     {imgUrl: '../../../static/img/memory5.png'},
+	    //     ]
+
       
 
 	}

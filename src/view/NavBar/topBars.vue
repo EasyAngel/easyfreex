@@ -43,7 +43,9 @@
 					<i class="fa fa-car" aria-hidden="true"></i>购物车
 				</li>
 				<li>
-					<i class="fa fa-sign-in" aria-hidden="true"></i>退出
+				  	<router-link to='/' >
+						<i class="fa fa-sign-in" aria-hidden="true"></i>退出
+					</router-link>
 				</li>
 			</ul>
 		</el-row>
@@ -53,8 +55,6 @@
 	.top{
 		line-height: 100px;
 		background: #ffffff;
-		/*position: fixed;*/
-		/*margin-left: 20%;*/
 	}
 	.top .Img{
 		width: 150px;
