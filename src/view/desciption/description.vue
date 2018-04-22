@@ -174,7 +174,7 @@
           
         
         </el-tabs>
-		
+		    <h4 style="margin-left:200px;margin-top:10px;"><button>评论</button></h4>
         <homeContentLastFoot class="homeContentLastFoot"></homeContentLastFoot> 
   	</div>
 </template>

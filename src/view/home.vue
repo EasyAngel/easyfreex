@@ -20,21 +20,21 @@
 			</el-menu-item>
 
 			<el-menu-item index="3" class="menu_item">
-				<!-- <router-link to="/home/arrange"> -->
+				<router-link to="/home/introduce">
 			    	<i class="fa fa-calendar icon" aria-hidden="true"></i>品牌介绍
-			    <!-- </router-link> -->
+			    </router-link>
 			</el-menu-item>
 
-			<el-menu-item index="4" class="menu_item">
-				<!-- <router-link to="/home/reservation"> -->
+			<!-- <el-menu-item index="4" class="menu_item">
+				<router-link to="/home/buying">
 			   		<i class="fa fa-clock-o icon" aria-hidden="true"></i>购物
-			   	<!-- </router-link> -->
-			</el-menu-item>
+			   	</router-link>
+			</el-menu-item> -->
 
 			<el-menu-item index="5" class="menu_item">
-				<!-- <router-link to="/home/Inquiry"> -->
+				<router-link to="/home/activity">
 			    	<i class="fa fa-plus-square icon" aria-hidden="true"></i>活动
-			    <!-- </router-link> -->
+			    </router-link>
 			</el-menu-item>
 
 			<el-menu-item index="6" class="menu_item">

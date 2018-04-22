@@ -32,11 +32,12 @@
 					<!-- </el-dropdown> -->
 				<!-- </li> -->
 				<li>
-					<router-link to='/home/login' ><i class="fa fa-user-o" aria-hidden="true"></i>登录</router-link>
+					<router-link to='/' ><i class="fa fa-user-o" aria-hidden="true"></i>登录</router-link>
 					
 				</li>
 				<li>
-					<i class="fa fa-address-book-o" aria-hidden="true"></i>注册
+					<router-link to='/register' ><i class="fa fa-address-book-o" aria-hidden="true"></i>注册
+					</router-link>
 				</li>
 				<li>
 					<i class="fa fa-car" aria-hidden="true"></i>购物车

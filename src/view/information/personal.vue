@@ -1,6 +1,6 @@
 <template>
 	<!-- 轮播 -->
-  	<div class="homeContent_body">
+  	<div class="information">
 
   	    
   	</div>

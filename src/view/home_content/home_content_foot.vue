@@ -131,9 +131,10 @@
   	  	    	<div class="img imgBorder">
   	  	    		<img src="https://www.innisfree.cn/cn_resources/images/layout/ico_renewal09_170717.jpg">
   	  	    	</div>
-  	  	    	<!-- 钟 -->
+  	  	    	<!-- 钟 收藏夹-->
   				<div class="img imgBorder">
-  	  	    		<img src="https://www.innisfree.cn/cn_resources/images/layout/ico_renewal02_170717.jpg">
+  	  	    		<!-- <img src="https://www.innisfree.cn/cn_resources/images/layout/ico_renewal02_170717.jpg"> -->
+  	  	    		收藏夹
   	  	    	</div>
   	  	    	<!-- 微信 -->
   				<div class="img imgBorder">

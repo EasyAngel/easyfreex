@@ -21,6 +21,15 @@ import UserInformation from '@/view/user/userInformation'
 // 搜索模块
 import Search from '@/view/search/search'
 
+// 品牌介绍
+import Introduce from '@/view/introduce/introduce'
+
+// 购物
+// import Buying from '@/view/buying/buying'
+
+// 活动
+import Activity from '@/view/activity/activity'
+
 // 详细页模块
 import Description from '@/view/desciption/description'
 
@@ -29,19 +38,11 @@ Vue.use(Router)
 Vue.use(Resource)
 Vue.use(Validator)
 
-// const routers = [
-//     {
-//         path: '/',
-//         name: 'index',
-//         component: (resolve) => require(['./views/index.vue'], resolve)
-//     }
-// ]
- // component: (resolve) => require(['./views/index.vue'], resolve)
+
 export default new Router({
   routes: [
     {path:'/',component: Login},
     { path: '/register',component: Register},
-    // { path: '/register',component:(resolve) => require(['./../view/register.vue'], Register)},
     { path: '/home',component: Home,
         children:[
             {path:'personal',component: Personal },
@@ -58,7 +59,10 @@ export default new Router({
                   {path:'userInformation',component: UserInformation},
                   {path: '/', redirect: 'userInformation' }//在子路由定向到userInformation
                 ]
-            }
+            },
+            {path: 'introduce',component: Introduce},
+            // {path: 'buying',component: Buying},
+            {path: 'activity',component: Activity}
            
         ]
 }     
