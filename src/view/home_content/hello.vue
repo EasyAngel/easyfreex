@@ -22,18 +22,18 @@
   	  <!-- 隐藏的部分 -->
 	  	<div class="hidden-menu"
 	        @mouseenter="evtHeaderEnter()"
-	        @mouseleave="evtHeaderLeave()" 
+	        @mouseleave="evtHeaderLeave()"
 	        v-show="headerStatus"
 	        transition="fadein">
 	        <ul class="menus clearfix">
 	          	<li class="product" v-for="item in currentcontent" >
 		            <router-link to="/home/description">
-		              
+
                    <div class="product-name">
                        {{item.name}}
                    </div>
 		            </router-link>
-		            
+
 	          	</li>
 	        </ul>
 	  	</div>
@@ -61,7 +61,7 @@ export default{
       currentcontent:"this.constrution",
       tids: '',
       name:'',
-     
+
       // 侧边栏
       navs: [
         {name: '品牌简介', type: 'constrution'},
@@ -80,7 +80,7 @@ export default{
         {name: '公益项目'},
         {name: 'easyfreex' },
         {name: '玩转小清新'}
-        
+
       ],
       // 产品类型子目录
       red: [
@@ -89,7 +89,7 @@ export default{
         {name: '洁面与卸妆'},
         {name: '防晒类型'},
         {name: '面部底妆'},
-        
+
       ],
       // 护肤系列子目录
       flats: [
@@ -97,7 +97,7 @@ export default{
         {name: '橄榄美品'},
         {name: '火山岩泥'},
         {name: '生机展颜'},
-        
+
       ],
       // 绿茶系列子目录
       tv: [
@@ -105,7 +105,7 @@ export default{
         {name: '雪耳'},
         {name: '温泉水' },
         {name: '九重镇纸' },
-        
+
       ],
       // 裸妆系列子目录
       box: [
@@ -113,7 +113,7 @@ export default{
         {name: '眉笔'},
         {name: '眼线笔'},
         {name: '眼影'},
-        
+
       ],
       // 底妆系列子目录
       router: [
@@ -122,7 +122,7 @@ export default{
         {name: '粉底'},
         {name: '遮瑕产品'},
         {name: '双用粉饼'},
-        
+
       ],
       // 素颜系列
       hardware: [
@@ -131,21 +131,21 @@ export default{
         {name: 'dd霜'},
         {name: 'ee霜'},
         {name: 'ff霜'},
-        
+
       ],
-      
+
       }
    },
 
-    
+
    methods:{
-   	
+
     evtHeaderEnter (menuType) {
       if (menuType) {
          this.currentcontent = this[menuType]
         $(".hidden-menu").slideDown("slow");
         }
-        this.headerStatus = true;           
+        this.headerStatus = true;
         clearTimeout(this.tids)
     },
     evtHeaderLeave () {
@@ -156,7 +156,7 @@ export default{
       }, 300)
     }
    },
-   
+
 
   }
 </script>
@@ -176,14 +176,14 @@ body{
 }
 .hello .navs{
 	height:60px;
-	width: 100px;
+	/*width: 100px;*/
 	text-align: center;
 	margin: 0;
-	padding: 0;	
+	padding: 0;
 }
 .hello .navs>li{
 	list-style:none;
-	width: 100;
+	width: 100px;
 	height:100%;
 	font-size: 15px;
 	line-height: 60px;
@@ -227,7 +227,7 @@ body{
 	border-right: 1px solid #ccc;
 }
 .hello .hidden-menu .menus  .product  a:nth-last-child(1) {
-   border-right: 0;  
+   border-right: 0;
 }
 .hello .hidden-menu .product-img {
 	width: 100%;
