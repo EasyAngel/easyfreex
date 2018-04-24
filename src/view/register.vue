@@ -23,38 +23,40 @@
 
           <!-- 用户注册信息表 -->
   				<el-form :model="ruleForm" :rules="rules" ref="ruleForm"    label-width="100px" class="demo-ruleForm form1">
-                
+
 
                 <!-- 姓名 -->
-    				  	<el-form-item label="真实姓名：" prop="name">
-    				   		   <el-input v-model="ruleForm.name"></el-input>
+    				  	<el-form-item label="真实姓名：" prop="realName" required>
+    				   		   <el-input v-model="ruleForm.realName"></el-input>
     				  	</el-form-item>
 
                 <!-- 性别 -->
-                <el-form-item label="性别：" prop="sex">
+                <el-form-item label="性别：" prop="sex" >
                      <!-- <el-input v-model="ruleForm.sex"></el-input> -->
+                      <el-radio-group v-model="ruleForm.sex">
                      <el-radio v-model="radio" label="1">男</el-radio>
-                    <el-radio v-model="radio" label="0">女</el-radio>
+                    <el-radio v-model="radio" label="2">女</el-radio>
+                  </el-radio-group>
                 </el-form-item>
-                
+
                 <!-- 联系电话 -->
-  					    <el-form-item label="联系电话：" prop="num">
-  				   		     <el-input v-model.number="ruleForm.num"></el-input>
+  					    <el-form-item label="联系电话：" prop="phoneNum" required>
+  				   		     <el-input v-model.number="ruleForm.phoneNum"></el-input>
   				  	  </el-form-item>
 
                 <!-- 联系邮箱 -->
-      					<el-form-item label="联系邮箱：" prop="mail">
-      					   	 <el-input v-model="ruleForm.mail"></el-input>
+      					<el-form-item label="联系邮箱：" prop="email" required>
+      					   	 <el-input v-model="ruleForm.email"></el-input>
       					</el-form-item>
 
                 <!-- 用户名 -->
-      					<el-form-item label="用户名：" prop="userName">
+      					<el-form-item label="用户名：" prop="userName" required>
       					   	 <el-input v-model="ruleForm.userName"></el-input>
       					</el-form-item>
 
                 <!-- 密码 -->
-      					<el-form-item label="密码：" prop="password">
-      					   	<el-input v-model.number="ruleForm.password"></el-input>
+      					<el-form-item label="密码：" prop="password" required>
+      					   	<el-input v-model="ruleForm.password"></el-input>
       					</el-form-item>
 
                 <!-- 重复密码 -->
@@ -63,18 +65,18 @@
       					</el-form-item> -->
 
                 <!-- 注册、重置的两个按钮 -->
-    				 	  <el-form-item>
-                    <!-- 注册按钮 -->
-      				    	<el-button type="primary" class="registerBtn" @click="submitForm('ruleForm')">注册</el-button>
+
+  				</el-form>
+
+          <div>{{tips}}</div>
+
+            <el-button type="primary" class="registerBtn" @click="submitForm('ruleForm')">注册</el-button>
 
                     <!-- 重置按钮 -->
-      				    	<el-button type="primary"  @click="resetForm('ruleForm')">重置</el-button>
-                    
-    				  	</el-form-item>
-  				</el-form>
+            <el-button type="primary"  @click="resetForm('ruleForm')">重置</el-button>
 			</div>
 		</div>
-		
+
 	</div>
 </template>
 <style scoped>
@@ -115,7 +117,7 @@
     font-family: "华文行楷";
 		line-height: 50px;
     margin-left:35px;
-    margin-top: 25px; 
+    margin-top: 25px;
 	}
   .register .part .form1{
     width: 400px;
@@ -127,7 +129,7 @@
   }
 </style>
 <script>
-	
+
   export default {
     data() {
       // 用户id
@@ -169,11 +171,14 @@
     	    }
     	    else {
     	    	var reg1 = /^[0-9]{11}$/;
-    	    	if (! reg1.test(value)) {
+    	    	if (! Number(value)) {
     	        	callback(new Error('请输入数字值'));
-    	    	} else {
-    	       		callback();
     	    	}
+            if(value.toString().length !== 11){
+              callback(new Error('请输入11位数字'));
+
+            }
+            callback();
     		}
     	};
     	var validateMail=(rule, value, callback) => {
@@ -194,21 +199,22 @@
     		if (value === '') {
     	        callback(new Error('请输入用户名'));
     	  }
-        else{
-          this.$http.get('../../static/login.json').then(function(response){
-             var flag=0;
-             for(let i=0;i<response.data.length;i++){
-               if(value === response.data[i].username){
-                 flag=1;
-                 break;
-               }
-             }
-             if(flag ===1){
-               callback(new Error("用户名已存在"));
-             }
-          });
-        }
-    	    
+        callback()
+        // else{
+        //   this.$http.get('../../static/login.json').then(function(response){
+        //      var flag=0;
+        //      for(let i=0;i<response.data.length;i++){
+        //        if(value === response.data[i].username){
+        //          flag=1;
+        //          break;
+        //        }
+        //      }
+        //      if(flag ===1){
+        //        callback(new Error("用户名已存在"));
+        //      }
+        //   });
+        // }
+
     	}
     	var validatePass = (rule, value, callback) => {
     	    if (value === '') {
@@ -234,13 +240,14 @@
     	        }
     	      };
      	 return {
+        tips:"",
 	        ruleForm: {
             // id:'',
             account:'',
-	          name: '',
+	          realName: '',
             sex:'',
-	          num: '',
-	          mail: '',
+	          phoneNum: '',
+	          email: '',
 	          userName: '',
 	          password: '',
 	          dbpassword: ''
@@ -253,21 +260,21 @@
           account:[
             {validator: validateAccount, trigger: 'blur' }
           ],
-          name: [
+          realName: [
             {validator: validateName, trigger: 'blur' }
           ],
-          num: [    
+          phoneNum: [
             {validator: validateNum, trigger: 'blur' }
           ],
-          mail: [
+          email: [
             {validator: validateMail, trigger: 'blur' }
           ],
           userName: [
             {validator: validateUserName, trigger: 'blur' }
-            
+
           ],
           password: [
-            {validator: validatePass, trigger: 'blur' }          
+            {validator: validatePass, trigger: 'blur' }
           ],
           dbpassword: [
             {validator: validatedbPass, trigger: 'blur' }
@@ -280,7 +287,24 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!');
+            this.$axios({
+                    url:"doRegister",
+                    method:'post',
+                    data:this.ruleForm
+                  }).then((res)=>{
+                    if(res.success){
+                      // this.$router.push({ path: 'home/hello'});
+                       this.tips = "注册成功"
+                    }else{
+                      this.tips = res.msg
+                    }
+                  },(rej)=>{
+                  console.log(rej,"")
+                    this.tips = "网络错误"
+                  }).catch((e)=>{
+                    console.log(e,"cuowu")
+
+                  })
           } else {
             console.log('error submit!!');
             return false;

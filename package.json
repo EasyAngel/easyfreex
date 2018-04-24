@@ -14,10 +14,12 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-runtime": "^6.26.0",
     "element-ui": "^1.4.1",
     "pug": "^2.0.3",
     "python": "0.0.4",
+    "qs": "^6.5.1",
     "sass": "^1.1.1",
     "sass-loader": "^7.0.1",
     "vue": "^2.3.3",

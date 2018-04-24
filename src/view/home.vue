@@ -9,14 +9,14 @@
 			<el-menu-item index="1" class="menu_item">
 			    <!-- 页面切换 -->
 			    <router-link to="/home/hello">
-			        <i class="fa fa-home icon" aria-hidden="true"></i>首页 
+			        <i class="fa fa-home icon" aria-hidden="true"></i>首页
 			    </router-link>
 			</el-menu-item>
 
 			<el-menu-item index="2" class="menu_item">
 			   <router-link to="/home/search">
 			      <i class="fa fa-search icon" aria-hidden="true"></i>查询
-			   </router-link> 
+			   </router-link>
 			</el-menu-item>
 
 			<el-menu-item index="3" class="menu_item">
@@ -50,7 +50,7 @@
 			</el-menu-item>
 		</el-menu>
 		<!-- <topBars class="topbar"></topBars> -->
-		<router-view class="content"></router-view>	
+		<router-view class="content"></router-view>
 	</div>
 </template>
 <style scoped>
@@ -92,7 +92,7 @@
 		margin-top: 0;
 		/*margin-left: 200px;*/
 	}
-	
+
 </style>
 <script>
 	import TopBars from '@/view/NavBar/topBars';

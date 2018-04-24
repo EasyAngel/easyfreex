@@ -44,7 +44,9 @@ Vue.use(Validator)
 
 export default new Router({
   routes: [
-    {path:'/',component: Login},
+    // 默认在首页
+    {path:'/',redirect: '/home/hello'},
+    {path:'/login',component: Login},
     { path: '/register',component: Register},
     { path: '/home',component: Home,
         children:[
@@ -52,13 +54,13 @@ export default new Router({
             {path:'hello',component: Hello,
                 children:[
                    {path:'login',component: Login}
-                   
+
                 ]
             },
             {path: 'description',component: Description},
             {path: 'search',component: Search},
             {path:'user',component: User,
-                children:[                 
+                children:[
                   {path:'userInformation',component: UserInformation},
                   {path: '/', redirect: 'userInformation' }//在子路由定向到userInformation
                 ]
@@ -67,8 +69,8 @@ export default new Router({
             // {path: 'buying',component: Buying},
             {path: 'activity',component: Activity},
             {path: 'community',component: Community}
-           
+
         ]
-}     
+}
   ]
 })
